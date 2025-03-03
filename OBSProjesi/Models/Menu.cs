@@ -61,6 +61,13 @@ namespace OBSProjesi.Models
                     Console.ReadKey();
                     Console.Clear();
                     break;
+                case 2: // Ad veya soyadın rakam içerme hatası
+                    Console.Clear();
+                    Console.WriteLine("Ad veya soyad rakam içeremez. Lütfen tekrar deneyiniz.");
+                    Console.ReadKey();
+                    Console.Clear();
+                    break;
+
             }
         }
     }

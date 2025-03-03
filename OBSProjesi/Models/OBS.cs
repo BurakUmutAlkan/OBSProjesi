@@ -10,10 +10,14 @@ namespace OBSProjesi.Models
     {
         List<Ogrenci> ogrenciListesi = new List<Ogrenci>();
         List<Ders> dersListesi = new List<Ders>();
+        List<int> sayiListesi = new List<int>();
 
         public OBS() 
         {
-
+            for (int i = 0; i < 10; i++)
+            {
+                sayiListesi.Add(i);
+            }
         }
 
         public void SecimIslemiYap(int secim)
@@ -67,11 +71,29 @@ namespace OBSProjesi.Models
             Menu menu = new Menu();
             Ogrenci yeniOgrenci = new Ogrenci();
 
+            ogrenciAd:
             Console.Write("Öğrencinin adını giriniz: ");
             yeniOgrenci.Ad = Console.ReadLine();
+            foreach (int sayi in sayiListesi)
+            {
+                if (yeniOgrenci.Ad.Contains(sayi.ToString()))
+                {
+                    menu.HataMesajiGoster(2);
+                    goto ogrenciAd;
+                }
+            }
 
+            ogrenciSoyad:
             Console.Write("Öğrencinin soyadını giriniz: ");
             yeniOgrenci.Soyad = Console.ReadLine();
+            foreach (int sayi in sayiListesi)
+            {
+                if (yeniOgrenci.Soyad.Contains(sayi.ToString()))
+                {
+                    menu.HataMesajiGoster(2);
+                    goto ogrenciSoyad;
+                }
+            }
 
             ogrenciNumarasi:
             Console.Write("Öğrencinin numarasını giriniz: ");
