@@ -49,9 +49,14 @@
     <Compile Include="Models\Ogrenci.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\DersServis.cs" />
+    <Compile Include="Services\OgrenciServis.cs" />
+    <Compile Include="Utilities\Yazi.cs" />
+    <Compile Include="Utilities\Hata.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

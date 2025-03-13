@@ -1,4 +1,5 @@
 ﻿using OBSProjesi.Models;
+using OBSProjesi.Utilities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,7 +29,7 @@ namespace OBSProjesi
                 }
                 else if ((secim <= 0 || (secim > 4 && secim != 9)) && !hataVerdi)
                 {
-                    menu.HataMesajiGoster(1);
+                    Hata.HataMesajiGoster(1);
                 }
             }
 

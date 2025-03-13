@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OBSProjesi.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,29 +7,20 @@ using System.Threading.Tasks;
 
 namespace OBSProjesi.Models
 {
-    internal class OBS
+    class OBS
     {
-        List<Ogrenci> ogrenciListesi = new List<Ogrenci>();
-        List<Ders> dersListesi = new List<Ders>();
-        List<int> sayiListesi = new List<int>();
-
-        public OBS() 
-        {
-            for (int i = 0; i < 10; i++)
-            {
-                sayiListesi.Add(i);
-            }
-        }
+        DersServis dersServisi = new DersServis();
+        OgrenciServis ogrenciServisi = new OgrenciServis();
 
         public void SecimIslemiYap(int secim)
         {
             switch (secim)
             {
                 case 1:
-                    OgrenciEkle();
+                    ogrenciServisi.OgrenciEkle();
                     break;
                 case 2:
-                    DersEkle();
+                    dersServisi.DersEkle();
                     break;
                 case 3:
                     OgrencileriListele();
@@ -39,23 +31,11 @@ namespace OBSProjesi.Models
             }
         }
 
-        public void DersEkle()
-        {
-            Console.Clear();
-
-            Menu menu = new Menu();
-            Ders yeniDers = new Ders();
-
-            // Dersin içeriklerini alma işlemleri buraya yazılacak.
-
-            Console.Clear();
-        }
-
         public void DersleriListele()
         {
             Console.Clear();
 
-            foreach (Ders ders in dersListesi) 
+            foreach (Ders ders in dersServisi.DersListesi()) 
             { 
                 // Derslerin içerikleri listelenecek.
             }
@@ -64,58 +44,11 @@ namespace OBSProjesi.Models
             Console.Clear();
         }
 
-        public void OgrenciEkle()
-        {
-            Console.Clear();
-
-            Menu menu = new Menu();
-            Ogrenci yeniOgrenci = new Ogrenci();
-
-            ogrenciAd:
-            Console.Write("Öğrencinin adını giriniz: ");
-            yeniOgrenci.Ad = Console.ReadLine();
-            foreach (int sayi in sayiListesi)
-            {
-                if (yeniOgrenci.Ad.Contains(sayi.ToString()))
-                {
-                    menu.HataMesajiGoster(2);
-                    goto ogrenciAd;
-                }
-            }
-
-            ogrenciSoyad:
-            Console.Write("Öğrencinin soyadını giriniz: ");
-            yeniOgrenci.Soyad = Console.ReadLine();
-            foreach (int sayi in sayiListesi)
-            {
-                if (yeniOgrenci.Soyad.Contains(sayi.ToString()))
-                {
-                    menu.HataMesajiGoster(2);
-                    goto ogrenciSoyad;
-                }
-            }
-
-            ogrenciNumarasi:
-            Console.Write("Öğrencinin numarasını giriniz: ");
-            try
-            {
-                yeniOgrenci.OgrenciNo = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (Exception)
-            {
-                menu.HataMesajiGoster(0);
-                goto ogrenciNumarasi;
-            }
-
-            ogrenciListesi.Add(yeniOgrenci);
-            Console.Clear();
-        }
-
         public void OgrencileriListele()
         {
             Console.Clear();
 
-            foreach (Ogrenci ogrenci in ogrenciListesi)
+            foreach (Ogrenci ogrenci in ogrenciServisi.OgrenciListesi())
             {
                 Console.WriteLine("Öğrenci Adı: " + ogrenci.Ad);
                 Console.WriteLine("Öğrenci Soyadı: " + ogrenci.Soyad);

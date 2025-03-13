@@ -11,6 +11,5 @@ namespace OBSProjesi.Models
         public string Ad { get; set; }
         public string Soyad { get; set; }
         public int OgrenciNo { get; set; }
-        //public DateTime DogumTarihi { get; set; }
     }
 }
