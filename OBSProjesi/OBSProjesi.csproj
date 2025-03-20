@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\Ders.cs" />
+    <Compile Include="Models\Kullanici.cs" />
     <Compile Include="Models\Menu.cs" />
     <Compile Include="Models\OBS.cs" />
     <Compile Include="Models\Ogrenci.cs" />

@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace OBSProjesi.Models
 {
-    internal class Ogrenci
+    class Ogrenci : Kullanici
     {
-        public string Ad { get; set; }
-        public string Soyad { get; set; }
         public int OgrenciNo { get; set; }
+        public string Bolum { get; set; }
     }
 }
