@@ -18,35 +18,11 @@ namespace OBSProjesi.Services
 
             Ogrenci yeniOgrenci = new Ogrenci();
 
-        ogrenciAd:
-            Console.Write("Öğrencinin adını giriniz: ");
-            yeniOgrenci.Ad = Console.ReadLine();
-            if (!Yazi.YaziMi(yeniOgrenci.Ad))
-            {
-                Hata.HataMesajiGoster(2);
-                goto ogrenciAd;
-            }
+            yeniOgrenci.Ad = Giris.StringGirdisiAl("ad");
 
-        ogrenciSoyad:
-            Console.Write("Öğrencinin soyadını giriniz: ");
-            yeniOgrenci.Soyad = Console.ReadLine();
-            if (!Yazi.YaziMi(yeniOgrenci.Soyad))
-            {
-                Hata.HataMesajiGoster(2);
-                goto ogrenciSoyad;
-            }
+            yeniOgrenci.Soyad = Giris.StringGirdisiAl("soyad");
 
-        ogrenciNumarasi:
-            Console.Write("Öğrencinin numarasını giriniz: ");
-            try
-            {
-                yeniOgrenci.OgrenciNo = Convert.ToInt32(Console.ReadLine());
-            }
-            catch (Exception)
-            {
-                Hata.HataMesajiGoster(0);
-                goto ogrenciNumarasi;
-            }
+            yeniOgrenci.OgrenciNo = Giris.IntGirdisiAl();
 
             ogrenciListesi.Add(yeniOgrenci);
             Console.Clear();
